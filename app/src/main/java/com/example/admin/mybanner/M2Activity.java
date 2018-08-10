@@ -7,23 +7,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.admin.mybanner.banner.BannerFragment;
+import com.example.admin.mybanner.banner.BannerTimerViewPager;
 import com.example.admin.mybanner.banner.BannerViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class M2Activity extends AppCompatActivity {
-    BannerViewPager vpBanner;
+    BannerTimerViewPager vpBanner;
     List<Fragment> fragments;
     BannerPagerAdapter bannerPagerAdapter;
-
+    private List<Integer> mTimers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m2);
         fragments = new ArrayList<>();
-        vpBanner = (BannerViewPager) findViewById(R.id.vp_banner);
+        vpBanner = (BannerTimerViewPager) findViewById(R.id.vp_banner);
+        mTimers=new ArrayList<>();//自定义每个轮播的时间，注意第一个和最后一个
+        mTimers.add(5000);//最后一个
+        mTimers.add(3000);
+        mTimers.add(1000);
+        mTimers.add(5000);
+        mTimers.add(3000);//第一个
         BannerFragment b31=BannerFragment.newInstance(2,"kkkkkkkkkkkkkk");
         fragments.add(b31);
         BannerFragment b1=BannerFragment.newInstance(0,R.drawable.what_1);
@@ -38,8 +45,8 @@ public class M2Activity extends AppCompatActivity {
         fragments.add(b11);
         bannerPagerAdapter = new BannerPagerAdapter(getSupportFragmentManager(), fragments);
         vpBanner.setAdapter(bannerPagerAdapter);
-        vpBanner.startPlay(3000);
-        vpBanner.setCurrentItem(1);
+        vpBanner.setmTimers(mTimers);
+        vpBanner.startPlay();
 
     }
 
