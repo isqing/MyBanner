@@ -18,11 +18,8 @@ public class TwoFragment extends Fragment {
     public TwoFragment() {
         // Required empty public constructor
     }
-    public static TwoFragment newInstance(int i) {
+    public static TwoFragment newInstance() {
         TwoFragment fragment = new TwoFragment();
-        Bundle bundle=new Bundle();
-        bundle.putInt("num",i);
-        fragment.setArguments(bundle);
         return fragment;
     }
 

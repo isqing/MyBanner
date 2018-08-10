@@ -18,11 +18,8 @@ public class ThreeFragment extends Fragment {
     public ThreeFragment() {
         // Required empty public constructor
     }
-    public static ThreeFragment newInstance(int i) {
+    public static ThreeFragment newInstance() {
         ThreeFragment fragment = new ThreeFragment();
-        Bundle bundle=new Bundle();
-        bundle.putInt("num",i);
-        fragment.setArguments(bundle);
         return fragment;
     }
 

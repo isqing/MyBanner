@@ -20,11 +20,8 @@ public class OneFragment extends Fragment {
     public OneFragment() {
         // Required empty public constructor
     }
-    public static OneFragment newInstance(int i) {
+    public static OneFragment newInstance() {
         OneFragment fragment = new OneFragment();
-        Bundle bundle=new Bundle();
-        bundle.putInt("num",i);
-        fragment.setArguments(bundle);
         return fragment;
     }
 
