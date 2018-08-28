@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'qing'
+            keyPassword 'safesafe'
+            storeFile file('qing.jks')
+            storePassword 'safesafe'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.admin.mybanner"
@@ -13,15 +21,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.config//打包命令行：gradlew assembleRelease
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    signingConfigs {
-        release {
-            storeFile file('qing.jks')
-            storePassword 'safesafe'
-            keyAlias 'qing'
-            keyPassword 'safesafe'
         }
     }
 }
