@@ -16,6 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    signingConfigs {
+        release {
+            storeFile file('qing.jks')
+            storePassword 'safesafe'
+            keyAlias 'qing'
+            keyPassword 'safesafe'
+        }
+    }
 }
 
 dependencies {
