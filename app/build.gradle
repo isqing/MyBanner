@@ -25,6 +25,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions("dimension")
+    productFlavors {
+
+        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+        flavors_default {
+        }
+
+        //开发版本, applicationId 替换为 com.littlejie.multichannel.dev
+        flavors_dev {
+        }
+
+        //发布版本, applicationId 替换为 com.littlejie.multichannel.release
+        flavors_release {
+        }
+    }
 }
 
 dependencies {
